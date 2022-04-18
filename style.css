@@ -1,0 +1,107 @@
+:root {
+    --Bright-orange: hsl(31, 77%, 52%);
+    --Dark-cyan: hsl(184, 100%, 22%);
+    --Very-dark-cyan: hsl(179, 100%, 13%);
+    --main-BG: hsl(0, 0%, 95%);
+    --main-CR: hsl(0, 0%, 95%);
+    --p-CR: hsla(0, 0%, 100%, 0.75);
+    --card-width: 335px;
+}
+*, :after, :before {
+    box-sizing: border-box;
+}
+body {
+    font-family: 'Lexend Deca', sans-serif;
+    font-size: 15px;
+    line-height: 1.5;
+    color: var(--main-CR);
+    margin: 0px;
+    background-color: var(--main-BG);
+    position: relative;
+    height: 100vh;
+}
+p {
+    margin: 0 0 20px;
+    color: var(--p-CR);
+}
+h2 {
+    color: var(--white);
+    font-family: 'Big Shoulders Display', cursive;
+    text-transform: uppercase;
+    font-size: 36px;
+    margin: 26px 0;
+}
+.container {
+    display: flex;
+    padding: 100px 0;
+    flex-direction: column;
+    align-items: center;
+}
+.card {
+    background-color: var(--Bright-orange);
+    width: var(--card-width);
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.card:first-of-type {
+    background-color: var(--Bright-orange);
+    border-radius: 10px 10px 0 0;
+}
+.card:nth-of-type(2) {
+    background-color: var(--Dark-cyan);
+}
+.card:last-of-type {
+    background-color: var(--Very-dark-cyan);
+    border-radius: 0 0 10px 10px;
+}
+button {
+    background-color: var(--main-BG);
+    color: var(--Bright-orange);
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 150px;
+    height: 50px;
+    border-radius: 30px;
+    font-size: 15px;
+    font-family: 'Lexend Deca', sans-serif;
+    transition: .3s ease-in-out;
+}
+.card:nth-of-type(2) button {
+    color: var(--Dark-cyan);
+}
+.card:nth-of-type(3) button {
+    color: var(--Very-dark-cyan);
+}
+.card button:hover,.card button:focus {
+    background-color: transparent;
+    color: #fff;
+    border: 3px solid #fff;
+    cursor: pointer;
+}
+@media (min-width: 1040px) {
+    :root {
+        --card-width: 310px;
+    }
+    p {
+        flex-grow: 1;
+    }
+    .card {
+        height: 500px;
+    }
+    .card:last-of-type {
+        border-radius: 0 10px 10px 0;
+    }
+    .card:first-of-type {
+        border-radius: 10px 0 0 10px;
+    }
+    .container {
+        padding: 0;
+        height: 100vh;
+        flex-direction: row;
+        justify-content: center;
+    }
+}
