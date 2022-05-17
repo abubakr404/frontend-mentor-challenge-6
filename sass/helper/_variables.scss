@@ -1,0 +1,10 @@
+$main: hsl(0, 0%, 95%);
+$p: hsla(0, 0%, 100%, 0.75);
+$orange: hsl(31, 77%, 52%);
+$cyan: hsl(184, 100%, 22%);
+$darkCyan: hsl(179, 100%, 13%);
+$cardsColor: (
+  1: $orange,
+  2: $cyan,
+  3: $darkCyan,
+);

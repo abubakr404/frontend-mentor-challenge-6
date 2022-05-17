@@ -1,0 +1,81 @@
+@import "sass/helper/variables";
+@import "sass/helper/mixin";
+@import "sass/layout/global-rules";
+
+@import url("https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Lexend+Deca&display=swap");
+
+body {
+  line-height: 1.5;
+  font-family: "Lexend Deca", sans-serif;
+  color: $main;
+  background-color: $main;
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  max-height: 50rem;
+  @include responMedia(mobile) {
+    height: auto;
+    max-height: none;
+    padding: 10vh 0;
+  }
+}
+.container {
+  display: grid;
+  grid-template: repeat(3, auto) / 1fr repeat(3, 2fr) 1fr;
+  @include responMedia(mobile) {
+    grid-template: repeat(3, 1fr) / 1fr 25fr 1fr;
+  }
+  p {
+    margin: 0 0 1.25rem;
+    font-size: 1.11rem;
+    flex-grow: 1;
+    color: $p;
+  }
+  h2,
+  .h2 {
+    color: $main;
+    font-family: "Big Shoulders Display", cursive;
+    text-transform: uppercase;
+    font-size: 2.25rem;
+    margin: 1.625rem 0;
+  }
+}
+.card {
+  padding: 3.125rem;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  @include radiBox(0.625rem);
+  @include responMedia(mobile) {
+    @include radiBox(0.625rem, false);
+  }
+  @each $cardNumber, $color in $cardsColor {
+    &:nth-of-type(#{$cardNumber}) {
+      @include responMedia(mobile) {
+        grid-area: #{$cardNumber}/ 2 /#{1 + $cardNumber} / 3;
+      }
+      grid-area: 2 /#{1 + $cardNumber}/ 3 /#{2 + $cardNumber};
+      background-color: $color;
+      button {
+        color: $color;
+      }
+    }
+  }
+  & button {
+    background-color: $main;
+    border: none;
+    @include fCenter;
+    width: 11em;
+    height: 3.5em;
+    border-radius: 3em;
+    font-family: "Lexend Deca", sans-serif;
+    transition: 0.2s ease-in-out;
+    &:hover,
+    &:focus {
+      box-shadow: inset 0 0 0 2px $main;
+      background-color: transparent;
+      color: $main;
+    }
+  }
+}
